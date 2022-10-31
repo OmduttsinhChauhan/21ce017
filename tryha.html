@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 STORES</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="style2.css">
+
+</head>
+
+<body>
+    <div class="main"><img src="">
+        <h1>4 STORES</h1>
+    </div>
+    <section class="header">
+        <div class="autocomplete" style="width:300px;">
+            <input id="myInput" type="text" name="myCountry" placeholder="Enter Food Item" value="" onchange="openpage()">
+            <script>
+              function openpage()
+              {
+                  var x =document.getElementById("myInput").value;
+                  if( x=== "Pen" )
+                  {
+                      window.open("file:///C:/Users/MOTOROLA/Documents/HARIl/123/pen.html")
+                  }
+
+                  else if(x=== "Sandwich")
+                  {
+                    window.open("https://www.google.com/search?client=opera&q=sandwich&sourceid=opera&ie=UTF-8&oe=UTF-8");
+                  }
+
+                  else if(x=== "Frankie")
+                  {
+                    window.open("https://www.google.com/search?q=frankie&client=opera&hs=0ec&sxsrf=ALiCzsYXQeg67j4cj_NE0hWFRY6GwZTO0Q%3A1663344822871&ei=tqAkY9TYNMHg4-EP64a-iAc&ved=0ahUKEwjUi7mq2pn6AhVB8DgGHWuDD3EQ4dUDCA0&uact=5&oq=frankie&gs_lcp=Cgdnd3Mtd2l6EAMyBwgAELEDEEMyBAgAEEMyCwguEIAEEMcBEK8BMg4IABCABBCxAxCDARDJAzIFCAAQkgMyBQgAEJIDMgsILhCABBDHARCvATIICAAQgAQQsQMyCAgAEIAEELEDMgUIABCABDoKCAAQRxDWBBCwAzoHCAAQsAMQQzoNCAAQ5AIQ1gQQsAMYAToPCC4Q1AIQyAMQsAMQQxgCOhIILhDHARDRAxDIAxCwAxBDGAI6DAguEMgDELADEEMYAjoECCMQJzoRCC4QgAQQsQMQgwEQxwEQ0QM6CwgAEIAEELEDEIMBOgsILhCABBCxAxDUAjoECC4QQzoQCC4QsQMQgwEQxwEQ0QMQQzoKCC4QsQMQ1AIQQzoICC4QgAQQsQM6CAgAELEDEIMBSgQIQRgASgQIRhgBUNsIWPMRYIwUaANwAXgAgAGNAogBnw2SAQMyLTeYAQCgAQHIARPAAQHaAQYIARABGAnaAQYIAhABGAg&sclient=gws-wiz");
+                  }
+                  else if( x==="Puff")
+                  {
+                    window.open("https://www.google.com/search?q=puff&client=opera&hs=kfc&sxsrf=ALiCzsa54wZLvgTk4FKRwwFp29bBPMYIOw%3A1663344868211&ei=5KAkY7PHDICN4-EPnJWP8A8&ved=0ahUKEwizyYjA2pn6AhWAxjgGHZzKA_4Q4dUDCA0&uact=5&oq=puff&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEJECMgoIABCxAxCDARBDMgcIABCxAxBDMggILhCxAxCRAjIICAAQgAQQsQMyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBMggIABCABBCxAzoKCAAQRxDWBBCwAzoHCAAQsAMQQzoNCAAQ5AIQ1gQQsAMYAToSCC4QxwEQ0QMQyAMQsAMQQxgCOgwILhDIAxCwAxBDGAI6DwguENQCEMgDELADEEMYAjoECCMQJzoLCAAQgAQQsQMQgwE6BwguENQCEEM6BQgAEIAEOgsILhCABBCxAxCDAToICC4QgAQQsQNKBAhBGABKBAhGGAFQ0AVYnQtg1gxoA3ABeACAAZMCiAH-BZIBAzItM5gBAKABAcgBE8ABAdoBBggBEAEYCdoBBggCEAEYCA&sclient=gws-wiz");
+                  }
+                  else if(x==="Thali")
+                  {
+                    window.open("search.html");
+                  }
+                  else if(x=== "Yogi Canteen")
+                  {
+                    window.open("Yogi.html");
+                  }
+              }
+          </script>
+          <button> </button>
+          <input type="submit" > 
+          </div>
+
+
+<script>
+     var countries = ["Burger","Sandwich","Frankie","Puff","Thali","Shreeji Canteen","Yogi Canteen","Danny's Place","Ice-berg","Wagh- Bakri"];
+
+    function autocomplete(inp, arr) {
+/*the autocomplete function takes two arguments,
+the text field element and an array of possible autocompleted values:*/
+var currentFocus;
+/*execute a function when someone writes in the text field:*/
+inp.addEventListener("input", function(e) {
+  var a, b, i, val = this.value;
+  /*close any already open lists of autocompleted values*/
+  closeAllLists();
+  if (!val) { return false;}
+  currentFocus = -1;
+  /*create a DIV element that will contain the items (values):*/
+  a = document.createElement("DIV");
+  a.setAttribute("id", this.id + "autocomplete-list");
+  a.setAttribute("class", "autocomplete-items");
+  /*append the DIV element as a child of the autocomplete container:*/
+  this.parentNode.appendChild(a);
+  /*for each item in the array...*/
+  for (i = 0; i < arr.length; i++) {
+    /*check if the item starts with the same letters as the text field value:*/
+    if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+      /*create a DIV element for each matching element:*/
+      b = document.createElement("DIV");
+      /*make the matching letters bold:*/
+      b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+      b.innerHTML += arr[i].substr(val.length);
+      /*insert a input field that will hold the current array item's value:*/
+      b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+      /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+          /*insert the value for the autocomplete text field:*/
+          inp.value = this.getElementsByTagName("input")[0].value;
+          /*close the list of autocompleted values,
+          (or any other open lists of autocompleted values:*/
+          closeAllLists();
+      });
+      a.appendChild(b);
+    }
+  }
+});
+/*execute a function presses a key on the keyboard:*/
+inp.addEventListener("keydown", function(e) {
+  var x = document.getElementById(this.id + "autocomplete-list");
+  if (x) x = x.getElementsByTagName("div");
+  if (e.keyCode == 40) {
+    /*If the arrow DOWN key is pressed,
+    increase the currentFocus variable:*/
+    currentFocus++;
+    /*and and make the current item more visible:*/
+    addActive(x);
+  } else if (e.keyCode == 38) { //up
+    /*If the arrow UP key is pressed,
+    decrease the currentFocus variable:*/
+    currentFocus--;
+    /*and and make the current item more visible:*/
+    addActive(x);
+  } else if (e.keyCode == 13) {
+    /*If the ENTER key is pressed, prevent the form from being submitted,*/
+    e.preventDefault();
+    if (currentFocus > -1) {
+      /*and simulate a click on the "active" item:*/
+      if (x) x[currentFocus].click();
+    }
+  }
+});
+function addActive(x) {
+/*a function to classify an item as "active":*/
+if (!x) return false;
+/*start by removing the "active" class on all items:*/
+removeActive(x);
+if (currentFocus >= x.length) currentFocus = 0;
+if (currentFocus < 0) currentFocus = (x.length - 1);
+/*add class "autocomplete-active":*/
+x[currentFocus].classList.add("autocomplete-active");
+}
+function removeActive(x) {
+/*a function to remove the "active" class from all autocomplete items:*/
+for (var i = 0; i < x.length; i++) {
+  x[i].classList.remove("autocomplete-active");
+}
+}
+function closeAllLists(elmnt) {
+/*close all autocomplete lists in the document,
+except the one passed as an argument:*/
+var x = document.getElementsByClassName("autocomplete-items");
+for (var i = 0; i < x.length; i++) {
+  if (elmnt != x[i] && elmnt != inp) {
+  x[i].parentNode.removeChild(x[i]);
+}
+}
+}
+/*execute a function when someone clicks in the document:*/
+document.addEventListener("click", function (e) {
+closeAllLists(e.target);
+});
+}
+</script>
+<script>
+autocomplete(document.getElementById("myInput"), countries);
+</script>
+
+            <ul id="navbar">
+                <li><a href="index-1.html">Home</a></li>
+                <li><a href="all.html">All Product</a></li>
+                <li>
+                    
+
+
+                    <!-- category -->
+
+                    <div class="dropdown" >
+                        <button class="dropbtn"><b>CATEGORY</b></button>
+                        <div class="dropdown-content">
+                          <a href="pen.html">PEN</a>
+                          <a href="PENCIL.html">PENCIL</a>
+                          <a href="ERASER.html">ERASER</a>
+                          <a href="SHAPNER.html">SHAPNER</a>
+                          <a href="HIGHLITER.html">HIGHLITER</a>
+                          <a href="SCALE.html">SCALE</a>
+                          <a href="NOTEBOOK.html">NOTEBOOK</a>
+
+                        </div>
+                      </div>
+
+
+
+                </li>
+               
+                <li><a href="https://docs.google.com/forms/d/1YjpJjcIx70HIxZSe130JaaH05o9Up7luXV0hQl_r7DA/edit">contact</a>
+                <li>
+                <li><a href="contachtml"> MY CART </a>
+                <li></li>
+            </ul>
+        </span>
+    </section>
+    <div class="mid">
+     <marquee><img src="stationery-banner.webp" width="2030vw" height="500vh"> <img src="E 1.webp" width="2030vw" height="500vh"></marquee>   
+    </div>
+    <div id="heading">
+        <h2>Our All The STATIONERY Product is Here</h2>
+        <marquee>  <p>A Unique Bookshop With All Materials.</p></marquee>
+       
+    </div>
+        <section id="product1" class="section-p1">
+
+            <div class="pro-container">
+                <div class="pro">
+                    <img src="simple ball pen 4.jpg" width="250px" height="250px" alt="">
+                    <div class="des">
+                        <span>DOMS</span>
+                        <h5>Simple Doms Ball Penn</h5>
+                        
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Rs.50</h4>
+                    </div>
+                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+                    </a>
+                </div>
+                <div class="pro">
+                    <div class="des">
+                        <img src="ADDGel pen.jpg" width="250px" alt="">
+                        <span>ADDGel</span>
+                        <h5>ADDGel Blue And Black Gel Pen</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Rs.250</h4>
+                    </div>
+                    <a href="#"><i class="fas fa-star"></i>
+                    </a>
+                </div>
+                <div class="pro">
+                    <div class="des">
+                        <img src="PREMIUM PEN 3.webp" width="250px" alt="">
+                        <span>JUMBO</span>
+                        <h5>Jumbo Premium Gell Ball Pen</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Rs.350</h4>
+                    </div>
+                    <a href="#"><i class="fas fa-star"></i>
+                    </a>
+                </div>
+                <div class="pro">
+                    <div class="des">
+                        <img src="PREMIUM PEN 1.jpg" width="250px" alt="">
+                        <span>ALPHA GELL PEN</span>
+                        <h5>Alpha Gell Pen A</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Rs.75</h4>
+                    </div>
+                    <a href="#"><i class="fas fa-star"></i>
+                    </a>
+                </div>
+                <div class="pro">
+                    <div class="des">
+                        <img src="alpha gel pen A.jpg" width="250px" alt="">
+                        <span>ALPHA GELL PEN</span>
+                        <h5>Alpha Gell Pen Z</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Rs.75</h4>
+                    </div>
+                    <a href="#"><i class="fas fa-fast_star"></i>
+                    </a>
+                </div>
+            <div class="pro">
+                <div class="des">
+                    <img src="APSRA PENCIL 2.webp" width="250px" alt="">
+                    <span>PENCIL</span>
+                    <h5>Apsra Pencil </h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.100</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="DOMS PENCIL 4.webp" width="250px" alt="">
+                <div class="des">
+                    <span>PENCIL</span>
+                    <h5>Doms Pencil</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.100</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="brustro-artists-fineart-graphite-pencil-set-of-12graphite-1.webp" width="250px" alt="">
+                <div class="des">
+                    <span>Brusto</span>
+                    <h5>Brusto Graphite Art Pencil</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.250</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="MECHANICAL PEN 1  200.webp" width="250px" height="250px" alt="">
+                <div class="des">
+                    <span>MECHANICAL PENCIL</span>
+                    <h5>Rotring Germeny 1928</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.100</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="MECHANICAL PEN 2  250.webp" width="250px" height="250px"  alt="">
+                <div class="des">
+                    <span>MECHANICAL PENCIL</span>
+                    <h5>End Cap With build-in Eraser</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.350</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="DOMS ERASER 1.jpg" width="250px" alt="">
+                <div class="des">
+                    <span>ERASER</span>
+                    <h5>Doms Eraser</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.5</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="E 3.jpg" width="250px" alt="">
+                <div class="des">
+                    <span>ERASER</span>
+                    <h5>Apsra Eraser</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.5</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="E 5.jpg" width="250px" alt="">
+                <div class="des">
+                    <span>ERASER</span>
+                    <h5>Natraj Eraser</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.5</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="DOMS ERASER 3.jpg" width="250px" alt="">
+                <div class="des">
+                    <span>ERASER</span>
+                    <h5>Doms Eraser</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.5</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="NATRAJ E 1.jpg" width="250px" height="250px" alt="">
+                <div class="des">
+                    <span>ERASER</span>
+                    <h5>Natraj Eraser</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.5</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="SHARPNERS 1.webp" width="250px" alt="">
+                <div class="des">
+                    <span>SHAPNER</span>
+                    <h5>Doms Shapner</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.7</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="APSRA SHAPNER.jpg" width="250px" height="250px" alt="">
+                <div class="des">
+                    <span>SHAPNER</span>
+                    <h5>Apsra Shapner</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.7</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="SHARPNERS 145 2.webp" width="250px" alt="">
+                <div class="des">
+                    <span>SHAPNER</span>
+                    <h5>Maped Premium Shapner</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.150</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="NATRAJ SHAPNER.jpg" width="250px" alt="">
+                <div class="des">
+                    <span>SHAPNER</span>
+                    <h5>Natraj Shapner</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.5</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="SHARPNERS 50 1.webp" width="250px" alt="">
+                <div class="des">
+                    <span>SHAPNER</span>
+                    <h5>Staedtler Shapner</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.50</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="Highlighters 1.jpg" width="250px" height="250px" alt="">
+                <div class="des">
+                    <span>HIGHLITER</span>
+                    <h5>Cello Highliter</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.20</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="Highlighters 3.webp" width="250px" height="250px" alt="">
+                <div class="des">
+                    <span>HIGHLITER</span>
+                    <h5>FABER-CASTLE Highliter</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.15</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="Highlighters 6.jpg" width="250px" alt="">
+                <div class="des">
+                    <span>HIGHLITER</span>
+                    <h5>Milk Liner Highliter</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.25</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="VIEW HIGHLITER.webp" width="250px" alt="">
+                <div class="des">
+                    <span>HIGHLITER</span>
+                    <h5>View Highliter</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.45</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="STABILO BOSS HIGHLITER.jpg" width="250px" height="250px" alt="">
+                <div class="des">
+                    <span>HIGHLITER</span>
+                    <h5>Stabilo Boss Highliter</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.35</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="DOMS 15 CM SCALE.webp" width="250px" height="250px" alt="">
+                <div class="des">
+                    <span>SCALE</span>
+                    <h5>Doms 15 Cm Scale</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.5</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="DOMS 30 CM SCALE.webp" width="250px" height="250px" alt="">
+                <div class="des">
+                    <span>SCALE</span>
+                    <h5>Doms 30 Cm Scale</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.2580</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="APSRA SCALE.jpg" width="250px" height="250px" alt="">
+                <div class="des">
+                    <span>SCALE</span>
+                    <h5>Apsra 30 Cm Scale</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.15</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="NATRAJ SCALE.webp" width="250px" height="250px" alt="">
+                <div class="des">
+                    <span>SCALE</span>
+                    <h5>Natraj Scale</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.5</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="AJANTA SCALE.jpg" width="250px" height="250px" alt="">
+                <div class="des">
+                    <span>SCALE</span>
+                    <h5>Metal Scale 15 Cm</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.10</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="NOTEBOOK 1.webp" width="250px" alt="">
+                <div class="des">
+                    <span>NOTEBOOK</span>
+                    <h5>Zequenz Signature Lite Series A5 Ruled Notebook</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.550</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="NOTEBOOK 2.webp" width="250px" alt="">
+                <div class="des">
+                    <span>NOTEBOOk</span>
+                    <h5>Craft Junky Luxury Serigaraphy Art Notebook</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.350</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="NOTEBOOK 3.webp" width="250px" alt="">
+                <div class="des">
+                    <span>NOTEBOOK</span>
+                    <h5>Flex Book 60 Years Edition Black Notebook</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.1650</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="NOTEBOOK 4.jpg" width="250px" alt="">
+                <div class="des">
+                    <span>NOTEBOOK</span>
+                    <h5>Luxor Premium Notebook Series Single Subject Notebook</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.80</h4>
+                </div>
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+            <div class="pro">
+                <img src="NOTEBOOK 5.jpg" width="250px" alt="">
+                <div class="des">
+                    <span>NOTEBOOK</span>
+                    <h5>Classmate Pulse Spiral Notebook - Single line, 300 Pages, Wiro, 240mm x 180 mm</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Rs.125</h4>
+                </div>  
+                <a href="#"><i class="fas fa-star"></i>
+                </a>
+            </div>
+
+
+
+
+            
+
+        </div>
+    </section>
+    <div>
+        <img src="project_photo/middelimg.jpg " width="2030vw" height="800vh" alt="">
+    </div>
+    <!-- <section id="newsletter">
+    <div class="newstext">
+        <h4>Sign UP For Newsletters</h4>
+        <p>Get E-Mail Updates About our letest shop and <span>Special Offers</span></p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="Your E-Mail Address">
+        <button>Sign Up</button>
+    </div>
+</section> -->
+<a href="#"><i class="fas fa-star"></i>
+
+
+    <footer>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+ <!-- <!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="cart_style.css">
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript">
+
+    RS.(document).ready(function(){
+
+      RS..ajax({
+        type:'post',
+        url:'store_items.php',
+        data:{
+          total_cart_items:"totalitems"
+        },
+        success:function(response) {
+          document.getElementById("total_items").value=response;
+        }
+      });
+
+    });
+
+    function cart(id)
+    {
+	  var ele=document.getElementById(id);
+	  var img_src=ele.getElementsByTagName("img")[0].src;
+	  var name=document.getElementById(id+"_name").value;
+	  var price=document.getElementById(id+"_price").value;
+	
+	  RS..ajax({
+        type:'post',
+        url:'store_items.php',
+        data:{
+          item_src:img_src,
+          item_name:name,
+          item_price:price
+        },
+        success:function(response) {
+          document.getElementById("total_items").value=response;
+        }
+      });
+	
+    }
+
+    function show_cart()
+    {
+      RS..ajax({
+      type:'post',
+      url:'store_items.php',
+      data:{
+        showcart:"cart"
+      },
+      success:function(response) {
+        document.getElementById("mycart").innerHTML=response;
+        RS.("#mycart").slideToggle();
+      }
+     });
+
+    }
+	
+</script>
+  
+</head>
+
+<body>
+
+<p id="cart_button" onclick="show_cart();">
+  <img src="images/cart_icon.png">
+  <input type="button" id="total_items" value="">
+</p>
+
+<div id="mycart">
+</div>
+
+<h1>Simple Add To Cart System Using jQuery,Ajax And PHP</h1>
+
+<div id="item_div">
+
+  <div class="items" id="item1">
+    <img src="images/PREMIUM PEN 3.webp" width="250px" alt="">
+    <input type="button" value="Add To CART" onclick="cart('item1')">
+    <p>Simple Navy Blue T-Shirt</p>
+    <p>Price - RS.95</p>
+    <input type="hidden" id="item1_name" value="Simple Navy Blue T-Shirt">
+    <input type="hidden" id="item1_price" value="RS.95">
+  </div>
+
+  <div class="items" id="item2">
+    <img src="product2.jpg">
+    <input type="button" value="Add To CART" onclick="cart('item2')">
+    <p>Trendy T-Shirt With Back Design</p>
+    <p>Price - RS.105</p>
+    <input type="hidden" id="item2_name" value="Trendy T-Shirt With Back Design">
+    <input type="hidden" id="item2_price" value="RS.105">
+  </div>
+  
+  <div class="items" id="item3">
+    <img src="product3.jpg">
+    <input type="button" value="Add To CART" onclick="cart('item3')">
+    <p>Two Color Half-Sleeves T-Shirt</p>
+    <p>Price - RS.120</p>
+    <input type="hidden" id="item3_name" value="Two Color Half-Sleeves T-Shirt">
+    <input type="hidden" id="item3_price" value="RS.120">
+  </div>
+
+  <div class="items" id="item4">
+    <img src="product4.jpg">
+    <input type="button" value="Add To CART" onclick="cart('item4')">
+    <p>Stylish Grey Chinos For Mens</p>
+    <p>Price - RS.140</p>
+    <input type="hidden" id="item4_name" value="Stylish Grey Chinos For Mens">
+    <input type="hidden" id="item4_price" value="RS.140">
+  </div>
+
+  <div class="items" id="item5">
+    <img src="product5.jpg">
+    <input type="button" value="Add To CART" onclick="cart('item5')">
+    <p>Comfortable Pants For Working</p>
+    <p>Price - RS.130</p>
+    <input type="hidden" id="item5_name" value="Comfortable Pants For Working">
+    <input type="hidden" id="item5_price" value="RS.130">
+  </div>
+
+  <div class="items" id="item6">
+    <img src="product6.jpg">
+    <input type="button" value="Add To CART" onclick="cart('item6')">
+    <p>Slim Track Pant For Jogging</p>
+    <p>Price - RS.90</p>
+    <input type="hidden" id="item6_name" value="Slim Track Pant For Jogging">
+    <input type="hidden" id="item6_price" value="RS.90">
+  </div>
+
+</div>
+
+</body>
+</html> 
+
+ -->
+
+ <!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="cart_style.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+
+      $.ajax({
+        type:'post',
+        url:'store_items.php',
+        data:{
+          total_cart_items:"totalitems"
+        },
+        success:function(response) {
+          document.getElementById("total_items").value=response;
+        }
+      });
+
+    });
+
+    function cart(id)
+    {
+	  var ele=document.getElementById(id);
+	  var img_src=ele.getElementsByTagName("img")[0].src;
+	  var name=document.getElementById(id+"_name").value;
+	  var price=document.getElementById(id+"_price").value;
+	
+	  $.ajax({
+        type:'post',
+        url:'store_items.php',
+        data:{
+          item_src:img_src,
+          item_name:name,
+          item_price:price
+        },
+        success:function(response) {
+
+          console.log(response);
+          document.getElementById("total_items").value=response;
+        }
+      });
+	
+    }
+
+    function show_cart()
+    {
+      $.ajax({
+      type:'post',
+      url:'store_items.php',
+      data:{
+        showcart:"cart"
+      },
+      success:function(response) {
+        document.getElementById("mycart").innerHTML=response;
+       $("#mycart").slideToggle();
+      }
+     });
+
+    }
+	
+</script>
+  
+</head>
+
+<body>
+
+  <p id="cart_button" onclick="show_cart();">
+    <img src="images/cart_icon.png">
+    <input type="button" id="total_items" value="">
+  </p>
+
+<div id="mycart">
+</div>
+
+
+
+<div id="item_div">
+
+  <div class="items" id="item1">
+    <img src="images/PREMIUM PEN 3.webp" width="250px" alt="">
+    <input type="button" value="Add To CART" onclick="cart('item1')">
+    <p>PREMIUM PEN 3</p>
+    <p>Price - RS.95</p>
+    <input type="hidden" id="item1_name" value="PREMIUM PEN 3">
+    <input type="hidden" id="item1_price" value="RS.95">
+  </div>
+
+  <div class="items" id="item2">
+    <img src="images/PREMIUM PEN 1.jpg" width="250px" alt="">
+    <input type="button" value="Add To CART" onclick="cart('item2')">
+    <p>PREMIUM PEN 1</p>
+    <p>Price - RS.105</p>
+    <input type="hidden" id="item2_name" value="PREMIUM PEN 1">
+    <input type="hidden" id="item2_price" value="RS.105">
+  </div>
+  
+  <div class="items" id="item3">
+    <img src="images/ADDGel pen.jpg" width="250px" height="250px" alt="">
+    <input type="button" value="Add To CART" onclick="cart('item3')">
+    <p>ADDGel pen</p>
+    <p>Price - RS.120</p>
+    <input type="hidden" id="item3_name" value="ADDGel pen">
+    <input type="hidden" id="item3_price" value="RS.120">
+  </div>
+
+  <div class="items" id="item4">
+    <img src="images/PREMIUM PEN 3.webp" width="250px" alt="">
+    <input type="button" value="Add To CART" onclick="cart('item4')">
+    <p>PREMIUM PEN 3</p>
+    <p>Price - RS.140</p>
+    <input type="hidden" id="item4_name" value="PREMIUM PEN 3">
+    <input type="hidden" id="item4_price" value="RS.140">
+  </div>
+
+  <div class="items" id="item5">
+    <img src="images/PREMIUM PEN 1.jpg" width="250px" alt="">
+    <input type="button" value="Add To CART" onclick="cart('item5')">
+    <p>PREMIUM PEN 1</p>
+    <p>Price - RS.130</p>
+    <input type="hidden" id="item5_name" value="PREMIUM PEN 1">
+    <input type="hidden" id="item5_price" value="RS.130">
+  </div>
+
+  <div class="items" id="item6">
+    <img src="images/alpha gel pen A.jpg" width="250px" alt="">
+    
+    <input type="button" value="Add To CART" onclick="cart('item6')">
+    <p>alpha gel pen A</p>
+    <p>Price - RS.90</p>
+    <input type="hidden" id="item6_name" value="alpha gel pen A ">
+    <input type="hidden" id="item6_price" value="RS.90">
+  </div>
+
+  <div class="items" id="item6">
+    <img src="images\AJANTA SCALE.jpg" width="250px" alt="">
+  
+    <input type="button" value="Add To CART" onclick="cart('item6')">
+    <p>AJANTA SCALE</p>
+    <p>Price - RS.60</p>
+    <input type="hidden" id="item6_name" value="AJANTA SCALE ">
+    <input type="hidden" id="item6_price" value="RS.60">
+  </div>
+
+  <div class="items" id="item6">
+    <img src="images\alpha gel pen H.jpg" width="250px" alt="">
+
+    <input type="button" value="Add To CART" onclick="cart('item6')">
+    <p>alpha gel pen H</p>
+    <p>Price - RS.25</p>
+    <input type="hidden" id="item6_name" value="alpha gel pen H">
+    <input type="hidden" id="item6_price" value="RS.25">
+  </div>
+
+  <div class="items" id="item6">
+    <img src="images\SIMPLE BALL PEN 5.jpg" width="250px" alt="">
+   
+    <input type="button" value="Add To CART" onclick="cart('item6')">
+    <p>SIMPLE BALL PEN 5</p>
+    <p>Price - RS.30</p>
+    <input type="hidden" id="item6_name" value="SIMPLE BALL PEN 5">
+    <input type="hidden" id="item6_price" value="RS.30">
+  </div>
+
+  <div class="items" id="item6">
+    <img src="images\SHARPNERS 145 2.webp" width="250px" alt="">
+  
+    <input type="button" value="Add To CART" onclick="cart('item6')">
+    <p>SHARPNERS 145 2</p>
+    <p>Price - RS.10</p>
+    <input type="hidden" id="item6_name" value="SHARPNERS 145 2">
+    <input type="hidden" id="item6_price" value="RS.10">
+  </div>
+
+  <div class="items" id="item6">
+    <img src="images\SIMPLE BALL PEN 3.jpg" width="250px" alt="">
+   
+    <input type="button" value="Add To CART" onclick="cart('item6')">
+    <p>SIMPLE BALL PEN 3</p>
+    <p>Price - RS.20</p>
+    <input type="hidden" id="item6_name" value="SIMPLE BALL PEN 3">
+    <input type="hidden" id="item6_price" value="RS.20">
+  </div>
+
+  <div class="items" id="item6">
+    <img src="images\SIMPLE BALL PEN 1.jpg" width="250px" alt="">
+    <input type="button" value="Add To CART" onclick="cart('item6')">
+    <p>ARTIST PENCIL 1</p>
+    <p>Price - RS.50</p>
+    <input type="hidden" id="item6_name" value="ARTIST PENCIL 1">
+    <input type="hidden" id="item6_price" value="RS.50">
+  </div>
+
+  <div class="items" id="item6">
+    <img src="images\NOTEBOOK 1.webp" width="250px" alt="">
+    <input type="button" value="Add To CART" onclick="cart('item6')">
+    <p>APSRA E 1</p>
+    <p>Price - RS.190</p>
+    <input type="hidden" id="item6_name" value="APSRA E 1">
+    <input type="hidden" id="item6_price" value="RS.190">
+  </div>
+
+
+</div>
+
+</body>
+</html>

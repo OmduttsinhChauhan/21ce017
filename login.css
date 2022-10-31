@@ -1,0 +1,74 @@
+body  
+{  
+    margin: 0;  
+    padding: 0;  
+    background-color:#f3f6f7ba;  
+    font-family: 'Oswald', sans-serif';  
+}  
+.login{  
+    width: 382px;  
+    overflow: hidden;  
+    margin: auto;  
+    margin: 20 0 0 450px;  
+    padding: 80px;  
+    background: #181818;  
+    border-radius: 15px ;  
+          
+}
+.signup{
+    width: 382px;  
+    overflow: hidden;  
+    margin: auto;  
+    margin: 20 0 0 450px;  
+    padding: 80px;  
+    background: #181818;  
+    border-radius: 15px ; 
+
+}  
+h2{  
+    text-align: center;  
+    color: #0d1112;  
+    padding: 20px;  
+}
+h2{  
+    text-align: center;  
+    color: #0d1112;  
+    padding: 20px;  
+}  
+label{  
+    color: #ebf4f2;  
+    font-size: 17px;  
+}  
+#Uname{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Pass{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+#log{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+    color: rgb(71, 71, 168);  
+  
+  
+}  
+span{  
+    color: rgb(249, 246, 246);  
+    font-size: 17px;  
+}  
+a{  
+    float: right;  
+    background-color: rgb(239, 231, 231);  
+} 
